@@ -1,0 +1,16 @@
+{
+	"properties": {
+		"uuid": "5b288e6e-e936-4385-a68a-4f32e9f8e05c",
+		"vmmServerId": "{{vmmServerId}}"
+	},
+	"location": "eastus2euap",
+	"tags": {
+		"additionalProp1": "string",
+		"additionalProp2": "string",
+		"additionalProp3": "string"
+	},
+	"extendedLocation": {
+		"type": "CustomLocation",
+		"name": "{{extendedLocName}}"
+	}
+}

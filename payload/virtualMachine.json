@@ -1,0 +1,47 @@
+{
+	"properties": {
+		"cloudId": "{{cloudId}}",
+		"templateId": "{{virtualMachineTemplateId}}",
+		"vmmServerId": "{{vmmServerId}}",
+		"hardwareProfile": {
+			"memoryMB": 1024,
+			"cpuCount": 1
+		},
+		"networkProfile": {
+			"networkInterfaces": [
+				{
+					"name": "arc-nic-1",
+					"virtualNetworkId": "{{virtualNetwork1Id}}"
+				},
+				{
+					"name": "arc-nic-2",
+					"virtualNetworkId": "{{virtualNetwork2Id}}"
+				}
+			]
+		},
+		"storageProfile": {
+			"disks": [
+				{
+					"name": "arc-disk-1",
+					"diskSizeGB": 10,
+					"bus": 0,
+					"lun": 10
+				},
+				{
+					"name": "arc-disk-2",
+					"diskSizeGB": 5
+				}
+			]
+		}
+	},
+	"location": "eastus2euap",
+	"tags": {
+		"additionalProp1": "string",
+		"additionalProp2": "string",
+		"additionalProp3": "string"
+	},
+	"extendedLocation": {
+		"type": "CustomLocation",
+		"name": "{{extendedLocName}}"
+	}
+}
