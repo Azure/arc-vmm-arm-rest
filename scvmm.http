@@ -12,7 +12,6 @@
 @vmmServerId = /{{armStub}}/vmmServers/{{vmmServerName}}
 # @name vmmServerPut
 PUT {{armRoot}}{{vmmServerId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/vmmServer.json
@@ -20,12 +19,10 @@ Content-Type: application/json
 ###
 # @name vmmServerAsyncGet
 GET {{vmmServerPut.response.headers.Azure-AsyncOperation}}
-Authorization: Bearer {{bearerToken}}
 
 ###
 # @name vmmServerGet
 GET {{armRoot}}{{vmmServerId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 
 # -------------------------------------------------------------------------------------------------
 ### Cloud
@@ -33,7 +30,6 @@ Authorization: Bearer {{bearerToken}}
 @cloudId = /{{armStub}}/clouds/{{cloudName}}
 # @name cloudPut
 PUT {{armRoot}}{{cloudId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/cloud.json
@@ -41,12 +37,10 @@ Content-Type: application/json
 ###
 # @name cloudAsyncGet
 GET {{cloudPut.response.headers.Azure-AsyncOperation}}
-Authorization: Bearer {{bearerToken}}
 
 ###
 # @name cloudGet
 GET {{armRoot}}{{cloudId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualNetwork 1
@@ -54,7 +48,6 @@ Authorization: Bearer {{bearerToken}}
 @virtualNetwork1Id = /{{armStub}}/virtualNetworks/{{virtualNetwork1Name}}
 # @name virtualNetwork1Put
 PUT {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/virtualNetwork-1.json
@@ -62,12 +55,10 @@ Content-Type: application/json
 ###
 # @name virtualNetwork1AsyncGet
 GET {{virtualNetwork1Put.response.headers.Azure-AsyncOperation}}
-Authorization: Bearer {{bearerToken}}
 
 ###
 # @name virtualNetwork1Get
 GET {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualNetwork 2
@@ -75,7 +66,6 @@ Authorization: Bearer {{bearerToken}}
 @virtualNetwork2Id = /{{armStub}}/virtualNetworks/{{virtualNetwork2Name}}
 # @name virtualNetwork2Put
 PUT {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/virtualNetwork-2.json
@@ -83,12 +73,10 @@ Content-Type: application/json
 ###
 # @name virtualNetwork2AsyncGet
 GET {{virtualNetwork2Put.response.headers.Azure-AsyncOperation}}
-Authorization: Bearer {{bearerToken}}
 
 ###
 # @name virtualNetwork2Get
 GET {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualMachineTemplate
@@ -96,7 +84,6 @@ Authorization: Bearer {{bearerToken}}
 @virtualMachineTemplateId = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateName}}
 # @name virtualMachineTemplatePut
 PUT {{armRoot}}{{virtualMachineTemplateId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/virtualMachineTemplate.json
@@ -104,12 +91,10 @@ Content-Type: application/json
 ###
 # @name virtualMachineTemplateAsyncGet
 GET {{virtualMachineTemplatePut.response.headers.Azure-AsyncOperation}}
-Authorization: Bearer {{bearerToken}}
 
 ###
 # @name virtualMachineTemplateGet
 GET {{armRoot}}{{virtualMachineTemplateId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualMachine
@@ -117,7 +102,6 @@ Authorization: Bearer {{bearerToken}}
 @virtualMachineId = /{{armStub}}/virtualMachines/{{virtualMachineName}}
 # @name virtualMachinePut
 PUT {{armRoot}}{{virtualMachineId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/virtualMachine.json
@@ -125,37 +109,29 @@ Content-Type: application/json
 ###
 # @name virtualMachineAsyncGet
 GET {{virtualMachinePut.response.headers.Azure-AsyncOperation}}
-Authorization: Bearer {{bearerToken}}
 
 ###
 # @name virtualMachineGet
 GET {{armRoot}}{{virtualMachineId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 
 #---------------------------------------------------------------------------------------------------
 ### Delete all resources
 ###
 # @name virtualMachineDel
 DELETE {{armRoot}}{{virtualMachineId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 ###
 # @name virtualMachineTemplateDel
 DELETE {{armRoot}}{{virtualMachineTemplateId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 ###
 # @name virtualNetwork2Del
 DELETE {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 ###
 # @name virtualNetwork1Del
 DELETE {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 ###
 # @name cloudDel
 DELETE {{armRoot}}{{cloudId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}
 
 ###
 # @name vmmServerDel
 DELETE {{armRoot}}{{vmmServerId}}{{reqParams}}
-Authorization: Bearer {{bearerToken}}

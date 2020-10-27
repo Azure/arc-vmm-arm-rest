@@ -32,8 +32,8 @@ def setBearerToken(projectRoot: str):
 	finally:
 		settingsJSON: typing.Dict[str, typing.Any] = json.load(open(settingsJSONPath, 'r'))
 	
-	keyPath = ['rest-client.environmentVariables', 'local', 'bearerToken']
-	setValueOfNestedKey(settingsJSON, keyPath, tokenJSON['accessToken'])
+	keyPath = ['rest-client.defaultHeaders', 'Authorization']
+	setValueOfNestedKey(settingsJSON, keyPath, f"Bearer {tokenJSON['accessToken']}")
 	json.dump(settingsJSON, open(settingsJSONPath, 'w'), indent=2)
 
 setBearerToken(dirname(abspath(__file__)))
