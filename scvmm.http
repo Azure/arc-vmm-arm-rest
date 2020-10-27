@@ -6,6 +6,8 @@
 @reqParams = ?api-version=2020-06-05-preview
 @extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/vmmcl002
 
+#------------------------------------------------------------------------------------------------
+### Create all resources
 # -------------------------------------------------------------------------------------------------
 ### VMMServer
 @vmmServerName = arc-vmmserver
@@ -17,7 +19,7 @@ Content-Type: application/json
 <@ ./payload/vmmServer.json
 
 ###
-# @name vmmServerAsyncGet
+# @name vmmServerPutAsyncGet
 GET {{vmmServerPut.response.headers.Azure-AsyncOperation}}
 
 ###
@@ -35,7 +37,7 @@ Content-Type: application/json
 <@ ./payload/cloud.json
 
 ###
-# @name cloudAsyncGet
+# @name cloudPutAsyncGet
 GET {{cloudPut.response.headers.Azure-AsyncOperation}}
 
 ###
@@ -53,7 +55,7 @@ Content-Type: application/json
 <@ ./payload/virtualNetwork-1.json
 
 ###
-# @name virtualNetwork1AsyncGet
+# @name virtualNetwork1PutAsyncGet
 GET {{virtualNetwork1Put.response.headers.Azure-AsyncOperation}}
 
 ###
@@ -71,7 +73,7 @@ Content-Type: application/json
 <@ ./payload/virtualNetwork-2.json
 
 ###
-# @name virtualNetwork2AsyncGet
+# @name virtualNetwork2PutAsyncGet
 GET {{virtualNetwork2Put.response.headers.Azure-AsyncOperation}}
 
 ###
@@ -89,7 +91,7 @@ Content-Type: application/json
 <@ ./payload/virtualMachineTemplate.json
 
 ###
-# @name virtualMachineTemplateAsyncGet
+# @name virtualMachineTemplatePutAsyncGet
 GET {{virtualMachineTemplatePut.response.headers.Azure-AsyncOperation}}
 
 ###
@@ -107,31 +109,61 @@ Content-Type: application/json
 <@ ./payload/virtualMachine.json
 
 ###
-# @name virtualMachineAsyncGet
+# @name virtualMachinePutAsyncGet
 GET {{virtualMachinePut.response.headers.Azure-AsyncOperation}}
 
 ###
 # @name virtualMachineGet
 GET {{armRoot}}{{virtualMachineId}}{{reqParams}}
 
-#---------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------
 ### Delete all resources
-###
+#------------------------------------------------------------------------------------------------
+### VirtualMachine
 # @name virtualMachineDel
 DELETE {{armRoot}}{{virtualMachineId}}{{reqParams}}
 ###
+# @name virtualMachineDelAsyncGet
+GET {{virtualMachineDel.response.headers.Location}}
+
+#------------------------------------------------------------------------------------------------
+### VirtualMachineTemplate
 # @name virtualMachineTemplateDel
 DELETE {{armRoot}}{{virtualMachineTemplateId}}{{reqParams}}
 ###
+# @name virtualMachineTemplateDelAsyncGet
+GET {{virtualMachineTemplateDel.response.headers.Location}}
+
+#------------------------------------------------------------------------------------------------
+### VirtualNetwork 2
 # @name virtualNetwork2Del
 DELETE {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
 ###
+# @name virtualNetwork2DelAsyncGet
+GET {{virtualNetwork2Del.response.headers.Location}}
+
+#------------------------------------------------------------------------------------------------
+### VirtualNetwork 1
 # @name virtualNetwork1Del
 DELETE {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
 ###
+# @name virtualNetwork1DelAsyncGet
+GET {{virtualNetwork1Del.response.headers.Location}}
+
+#------------------------------------------------------------------------------------------------
+### Cloud
 # @name cloudDel
 DELETE {{armRoot}}{{cloudId}}{{reqParams}}
+###
+# @name cloudDelAsyncGet
+GET {{cloudDel.response.headers.Location}}
 
+#------------------------------------------------------------------------------------------------
 ###
 # @name vmmServerDel
 DELETE {{armRoot}}{{vmmServerId}}{{reqParams}}
+###
+# @name vmmServerDelAsyncGet
+GET {{vmmServerDel.response.headers.Location}}
+
+#------------------------------------------------------------------------------------------------
