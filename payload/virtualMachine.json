@@ -18,6 +18,20 @@
 					"virtualNetworkId": "{{virtualNetwork2Id}}"
 				}
 			]
+		},
+		"storageProfile": {
+			"disks": [
+				{
+					"name": "arc-disk-1",
+					"diskSizeGB": 10,
+					"bus": 0,
+					"lun": 10
+				},
+				{
+					"name": "arc-disk-2",
+					"diskSizeGB": 5
+				}
+			]
 		}
 	},
 	"location": "eastus2euap",
