@@ -9,15 +9,14 @@
 # -------------------------------------------------------------------------------------------------
 ### VMMServer
 @vmmServerName = arc-vmmserver
+@vmmServerId = /{{armStub}}/vmmServers/{{vmmServerName}}
 # @name vmmServerPut
-PUT {{armRoot}}/{{armStub}}/vmmServers/{{vmmServerName}}{{reqParams}}
+PUT {{armRoot}}{{vmmServerId}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/vmmServer.json
 
-###
-@vmmServerId = {{vmmServerPut.response.body.$.id}}
 ###
 # @name vmmServerAsyncGet
 GET {{vmmServerPut.response.headers.Azure-AsyncOperation}}
@@ -25,21 +24,20 @@ Authorization: Bearer {{bearerToken}}
 
 ###
 # @name vmmServerGet
-GET {{armRoot}}/{{vmmServerId}}{{reqParams}}
+GET {{armRoot}}{{vmmServerId}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 
 # -------------------------------------------------------------------------------------------------
 ### Cloud
 @cloudName = arc-cloud
+@cloudId = /{{armStub}}/clouds/{{cloudName}}
 # @name cloudPut
-PUT {{armRoot}}/{{armStub}}/clouds/{{cloudName}}{{reqParams}}
+PUT {{armRoot}}{{cloudId}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/cloud.json
 
-###
-@cloudId = {{cloudPut.response.body.$.id}}
 ###
 # @name cloudAsyncGet
 GET {{cloudPut.response.headers.Azure-AsyncOperation}}
@@ -47,21 +45,20 @@ Authorization: Bearer {{bearerToken}}
 
 ###
 # @name cloudGet
-GET {{armRoot}}/{{cloudId}}{{reqParams}}
+GET {{armRoot}}{{cloudId}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualNetwork 1
 @virtualNetwork1Name = arc-virtualnetwork-1
+@virtualNetwork1Id = /{{armStub}}/virtualNetworks/{{virtualNetwork1Name}}
 # @name virtualNetwork1Put
-PUT {{armRoot}}/{{armStub}}/virtualNetworks/{{virtualNetwork1Name}}{{reqParams}}
+PUT {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/virtualNetwork-1.json
 
-###
-@virtualNetwork1Id = {{virtualNetwork1Put.response.body.$.id}}
 ###
 # @name virtualNetwork1AsyncGet
 GET {{virtualNetwork1Put.response.headers.Azure-AsyncOperation}}
@@ -69,21 +66,20 @@ Authorization: Bearer {{bearerToken}}
 
 ###
 # @name virtualNetwork1Get
-GET {{armRoot}}/{{virtualNetwork1Id}}{{reqParams}}
+GET {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualNetwork 2
 @virtualNetwork2Name = arc-virtualnetwork-2
+@virtualNetwork2Id = /{{armStub}}/virtualNetworks/{{virtualNetwork2Name}}
 # @name virtualNetwork2Put
-PUT {{armRoot}}/{{armStub}}/virtualNetworks/{{virtualNetwork2Name}}{{reqParams}}
+PUT {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/virtualNetwork-2.json
 
-###
-@virtualNetwork2Id = {{virtualNetwork2Put.response.body.$.id}}
 ###
 # @name virtualNetwork2AsyncGet
 GET {{virtualNetwork2Put.response.headers.Azure-AsyncOperation}}
@@ -91,21 +87,20 @@ Authorization: Bearer {{bearerToken}}
 
 ###
 # @name virtualNetwork2Get
-GET {{armRoot}}/{{virtualNetwork2Id}}{{reqParams}}
+GET {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualMachineTemplate
 @virtualMachineTemplateName = arc-virtualMachineTemplate
+@virtualMachineTemplateId = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateName}}
 # @name virtualMachineTemplatePut
-PUT {{armRoot}}/{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateName}}{{reqParams}}
+PUT {{armRoot}}{{virtualMachineTemplateId}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/virtualMachineTemplate.json
 
-###
-@virtualMachineTemplateId = {{virtualMachineTemplatePut.response.body.$.id}}
 ###
 # @name virtualMachineTemplateAsyncGet
 GET {{virtualMachineTemplatePut.response.headers.Azure-AsyncOperation}}
@@ -113,21 +108,20 @@ Authorization: Bearer {{bearerToken}}
 
 ###
 # @name virtualMachineTemplateGet
-GET {{armRoot}}/{{virtualMachineTemplateId}}{{reqParams}}
+GET {{armRoot}}{{virtualMachineTemplateId}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualMachine
 @virtualMachineName = arc-virtualMachine
+@virtualMachineId = /{{armStub}}/virtualMachines/{{virtualMachineName}}
 # @name virtualMachinePut
-PUT {{armRoot}}/{{armStub}}/virtualMachines/{{virtualMachineName}}{{reqParams}}
+PUT {{armRoot}}{{virtualMachineId}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
 
 <@ ./payload/virtualMachine.json
 
-###
-@virtualMachineId = {{virtualMachinePut.response.body.$.id}}
 ###
 # @name virtualMachineAsyncGet
 GET {{virtualMachinePut.response.headers.Azure-AsyncOperation}}
@@ -135,5 +129,33 @@ Authorization: Bearer {{bearerToken}}
 
 ###
 # @name virtualMachineGet
-GET {{armRoot}}/{{virtualMachineId}}{{reqParams}}
+GET {{armRoot}}{{virtualMachineId}}{{reqParams}}
+Authorization: Bearer {{bearerToken}}
+
+#---------------------------------------------------------------------------------------------------
+### Delete all resources
+###
+# @name virtualMachineDel
+DELETE {{armRoot}}{{virtualMachineId}}{{reqParams}}
+Authorization: Bearer {{bearerToken}}
+###
+# @name virtualMachineTemplateDel
+DELETE {{armRoot}}{{virtualMachineTemplateId}}{{reqParams}}
+Authorization: Bearer {{bearerToken}}
+###
+# @name virtualNetwork2Del
+DELETE {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
+Authorization: Bearer {{bearerToken}}
+###
+# @name virtualNetwork1Del
+DELETE {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
+Authorization: Bearer {{bearerToken}}
+###
+# @name cloudDel
+DELETE {{armRoot}}{{cloudId}}{{reqParams}}
+Authorization: Bearer {{bearerToken}}
+
+###
+# @name vmmServerDel
+DELETE {{armRoot}}{{vmmServerId}}{{reqParams}}
 Authorization: Bearer {{bearerToken}}
