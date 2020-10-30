@@ -1,0 +1,29 @@
+@azureRoot = https://management.azure.com
+
+@subscriptionId = 9e7d5c01-90ea-4969-bdbf-a4517cd82ccd
+
+@resourceGroup = aadk8test
+
+@provider = microsoft.extendedlocation
+
+@apiVersion = 2020-07-15-privatepreview
+
+@reqParams = ?api-version={{apiVersion}}
+
+@customLocationName = snaskar-cl
+
+@connectedClusterName = connectedClusterVMMTest01
+
+@hostResourceId = /subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Kubernetes/connectedClusters/{{connectedClusterName}}
+
+@namespace = snaskar-ns
+
+@clusterExtensionId = {{hostResourceId}}/providers/Microsoft.KubernetesConfiguration/extensions/VMMTestExt002
+
+@location = eastus
+
+###
+PUT {{azureRoot}}/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroup}}/providers/{{provider}}/customlocations/{{customLocationName}}{{reqParams}}
+Content-Type: application/json
+
+<@ ./payload/customLocation.json

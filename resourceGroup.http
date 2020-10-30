@@ -1,0 +1,19 @@
+@azureRoot = https://management.azure.com
+
+@subscriptionId = 81ddc363-4b54-4223-833d-16b2a424d8a0
+
+@apiVersion = 2020-06-01
+
+@reqParams = ?api-version={{apiVersion}}
+
+@resourceGroupName = snaskar-rg
+
+@location = eastus
+
+###
+PUT {{azureRoot}}/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroupName}}?api-version=2020-06-01
+Content-Type: application/json
+
+{
+	"location": "{{location}}"
+}

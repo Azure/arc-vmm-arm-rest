@@ -7,7 +7,7 @@
 		"fqdn": "10.225.89.248",
 		"port": 443
 	},
-	"location": "eastus2euap",
+	"location": "{{location}}",
 	"extendedLocation": {
 		"type": "CustomLocation",
 		"name": "{{extendedLocName}}"

@@ -6,6 +6,8 @@
 @reqParams = ?api-version=2020-06-05-preview
 @extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/vmmcl002
 
+@location = eastus2euap
+
 #------------------------------------------------------------------------------------------------
 ### Create all resources
 # -------------------------------------------------------------------------------------------------
@@ -100,7 +102,7 @@ GET {{armRoot}}{{virtualMachineTemplateId}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualMachine
-@virtualMachineName = arc-virtualMachine
+@virtualMachineName = arc-virtualMachine-new
 @virtualMachineId = /{{armStub}}/virtualMachines/{{virtualMachineName}}
 # @name virtualMachinePut
 PUT {{armRoot}}{{virtualMachineId}}{{reqParams}}

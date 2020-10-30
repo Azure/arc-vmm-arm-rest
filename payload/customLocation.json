@@ -1,0 +1,10 @@
+{
+	"location": "{{location}}",
+	"properties": {
+		"hostResourceId": "{{hostResourceId}}",
+		"namespace": "{{namespace}}",
+		"clusterExtensionIds": [
+			"{{clusterExtensionId}}"
+		]
+	}
+}

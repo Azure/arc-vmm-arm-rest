@@ -8,16 +8,7 @@
 			"cpuCount": 1
 		},
 		"networkProfile": {
-			"networkInterfaces": [
-				{
-					"name": "arc-nic-1",
-					"virtualNetworkId": "{{virtualNetwork1Id}}"
-				},
-				{
-					"name": "arc-nic-2",
-					"virtualNetworkId": "{{virtualNetwork2Id}}"
-				}
-			]
+			"networkInterfaces": []
 		},
 		"storageProfile": {
 			"disks": [
@@ -34,7 +25,7 @@
 			]
 		}
 	},
-	"location": "eastus2euap",
+	"location": "{{location}}",
 	"extendedLocation": {
 		"type": "CustomLocation",
 		"name": "{{extendedLocName}}"

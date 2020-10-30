@@ -3,7 +3,7 @@
 		"uuid": "3038e2af-2996-4028-b5b5-58a85b84ed5d",
 		"vmmServerId": "{{vmmServerId}}"
 	},
-	"location": "eastus2euap",
+	"location": "{{location}}",
 	"extendedLocation": {
 		"type": "CustomLocation",
 		"name": "{{extendedLocName}}"
