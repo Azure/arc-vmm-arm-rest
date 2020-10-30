@@ -102,7 +102,7 @@ GET {{armRoot}}{{virtualMachineTemplateId}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualMachine
-@virtualMachineName = arc-virtualMachine-new
+@virtualMachineName = arc-virtualMachine
 @virtualMachineId = /{{armStub}}/virtualMachines/{{virtualMachineName}}
 # @name virtualMachinePut
 PUT {{armRoot}}{{virtualMachineId}}{{reqParams}}
