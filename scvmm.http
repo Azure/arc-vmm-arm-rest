@@ -1,12 +1,12 @@
 @armRoot = https://management.azure.com
-@subscriptionId = 70aad6c5-69f0-4905-87b8-f8700e08e2dd
-@resourceGroup = snaskar-test
+@subscriptionId = 81ddc363-4b54-4223-833d-16b2a424d8a0
+@resourceGroup = snaskar-rg
 @provider = Microsoft.SCVMM
 @armStub = subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/{{provider}}
 @reqParams = ?api-version=2020-06-05-preview
-@extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/vmmcl002
+@extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/snaskar-cl
 
-@location = eastus2euap
+@location = eastus
 
 #------------------------------------------------------------------------------------------------
 ### Create all resources
@@ -102,7 +102,7 @@ GET {{armRoot}}{{virtualMachineTemplateId}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualMachine
-@virtualMachineName = arc-virtualMachine
+@virtualMachineName = arc-virtualMachine-ghost
 @virtualMachineId = /{{armStub}}/virtualMachines/{{virtualMachineName}}
 # @name virtualMachinePut
 PUT {{armRoot}}{{virtualMachineId}}{{reqParams}}
