@@ -11,7 +11,6 @@
 
 ```sh
 az login
-az account set --subscription 70aad6c5-69f0-4905-87b8-f8700e08e2dd
 ```
 
 2. Run [`setBearerToken.py`](./setBearerToken.py) to patch the `Authorization` environment variable for REST Client.

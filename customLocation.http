@@ -12,15 +12,15 @@
 
 @customLocationName = snaskar-cl
 
-@connectedClusterName = connectedClusterVMMTest01
+@connectedClusterName = vmmappliance
 
 @hostResourceId = /subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Kubernetes/connectedClusters/{{connectedClusterName}}
 
 @namespace = snaskar-ns
 
-@clusterExtensionId = {{hostResourceId}}/providers/Microsoft.KubernetesConfiguration/extensions/VMMTestExt002
+@clusterExtensionId = {{hostResourceId}}/providers/Microsoft.KubernetesConfiguration/extensions/scvmm
 
-@location = eastus
+@location = eastus2euap
 
 ###
 PUT {{azureRoot}}/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroup}}/providers/{{provider}}/customlocations/{{customLocationName}}{{reqParams}}
