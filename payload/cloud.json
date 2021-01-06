@@ -1,6 +1,6 @@
 {
 	"properties": {
-		"uuid": "ee0e57bc-547b-4943-9ab2-5cc1284fd05d",
+		"uuid": "18a54cfc-2105-4713-80be-33f514e923da",
 		"vmmServerId": "{{vmmServerId}}"
 	},
 	"location": "{{location}}",

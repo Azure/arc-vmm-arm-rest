@@ -1,18 +1,20 @@
-@armRoot = https://management.azure.com
 @subscriptionId = 70aad6c5-69f0-4905-87b8-f8700e08e2dd
-@resourceGroup = snaskar-rg
+@resourceGroup = snaskar-rg-{{uni}}
 @provider = Microsoft.SCVMM
 @armStub = subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/{{provider}}
 @reqParams = ?api-version=2020-06-05-preview
-@extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/snaskar-cl
+@extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/xmas-cl
 
-@location = eastus2euap
+@location = westeurope
 
 #------------------------------------------------------------------------------------------------
 ### Create all resources
 # -------------------------------------------------------------------------------------------------
 ### VMMServer
-@vmmServerName = arc-vmmserver
+# @name getAllVMMServer
+GET {{armRoot}}/{{armStub}}/vmmServers{{reqParams}}
+###
+@vmmServerName = vmmserver-{{uni}}
 @vmmServerId = /{{armStub}}/vmmServers/{{vmmServerName}}
 # @name vmmServerPut
 PUT {{armRoot}}{{vmmServerId}}{{reqParams}}
@@ -30,7 +32,10 @@ GET {{armRoot}}{{vmmServerId}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### Cloud
-@cloudName = arc-cloud
+# @name getAllCloud
+GET {{armRoot}}/{{armStub}}/clouds{{reqParams}}
+###
+@cloudName = cloud-qos
 @cloudId = /{{armStub}}/clouds/{{cloudName}}
 # @name cloudPut
 PUT {{armRoot}}{{cloudId}}{{reqParams}}
@@ -48,7 +53,11 @@ GET {{armRoot}}{{cloudId}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualNetwork 1
-@virtualNetwork1Name = arc-virtualnetwork-1
+# @name getAllVN
+GET {{armRoot}}/{{armStub}}/virtualNetworks{{reqParams}}
+###
+@virtualNetwork1Name = vnet-561
+
 @virtualNetwork1Id = /{{armStub}}/virtualNetworks/{{virtualNetwork1Name}}
 # @name virtualNetwork1Put
 PUT {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
@@ -66,7 +75,7 @@ GET {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualNetwork 2
-@virtualNetwork2Name = arc-virtualnetwork-2
+@virtualNetwork2Name = vnet-562
 @virtualNetwork2Id = /{{armStub}}/virtualNetworks/{{virtualNetwork2Name}}
 # @name virtualNetwork2Put
 PUT {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
@@ -84,7 +93,10 @@ GET {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualMachineTemplate
-@virtualMachineTemplateNameBlank = arc-vmt-blank
+# @name getAllVMT
+GET {{armRoot}}/{{armStub}}/virtualMachineTemplates{{reqParams}}
+###
+@virtualMachineTemplateNameBlank = vmtemplate-blank
 @virtualMachineTemplateIdBlank = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateNameBlank}}
 # @name virtualMachineTemplatePutBlank
 PUT {{armRoot}}{{virtualMachineTemplateIdBlank}}{{reqParams}}
@@ -100,7 +112,7 @@ GET {{virtualMachineTemplatePutBlank.response.headers.Azure-AsyncOperation}}
 GET {{armRoot}}{{virtualMachineTemplateIdBlank}}{{reqParams}}
 ###
 
-@virtualMachineTemplateNameLinux = arc-vmt-linux
+@virtualMachineTemplateNameLinux = vmtemplate-ubuntu
 @virtualMachineTemplateIdLinux = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateNameLinux}}
 # @name virtualMachineTemplatePutLinux
 PUT {{armRoot}}{{virtualMachineTemplateIdLinux}}{{reqParams}}
@@ -116,7 +128,7 @@ GET {{virtualMachineTemplatePutLinux.response.headers.Azure-AsyncOperation}}
 GET {{armRoot}}{{virtualMachineTemplateIdLinux}}{{reqParams}}
 
 ###
-@virtualMachineTemplateNameWindows = arc-vmt-win
+@virtualMachineTemplateNameWindows = vmtemplate-win
 @virtualMachineTemplateIdWindows = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateNameWindows}}
 # @name virtualMachineTemplatePutWindows
 PUT {{armRoot}}{{virtualMachineTemplateIdWindows}}{{reqParams}}
@@ -135,7 +147,10 @@ GET {{armRoot}}{{virtualMachineTemplateIdWindows}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualMachine
-@virtualMachineName = arc-virtualMachine-ghost
+# @name getAllVM
+GET {{armRoot}}/{{armStub}}/virtualMachines{{reqParams}}
+###
+@virtualMachineName = vm-nobug-2
 @virtualMachineId = /{{armStub}}/virtualMachines/{{virtualMachineName}}
 # @name virtualMachinePut
 PUT {{armRoot}}{{virtualMachineId}}{{reqParams}}
@@ -150,6 +165,14 @@ GET {{virtualMachinePut.response.headers.Azure-AsyncOperation}}
 ###
 # @name virtualMachineGet
 GET {{armRoot}}{{virtualMachineId}}{{reqParams}}
+
+### Actions
+# @name startVM
+POST {{armRoot}}{{virtualMachineId}}/start{{reqParams}}
+
+###
+# @name startVMAsyncGet
+GET {{startVM.response.headers.Location}}
 
 #------------------------------------------------------------------------------------------------
 ### Delete all resources
@@ -202,3 +225,11 @@ DELETE {{armRoot}}{{vmmServerId}}{{reqParams}}
 GET {{vmmServerDel.response.headers.Location}}
 
 #------------------------------------------------------------------------------------------------
+###
+DELETE {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/aadk8test/providers/Microsoft.ScVmm/virtualmachinetemplates/cl-test-vmm-temp-eu-4{{reqParams}}
+
+###
+DELETE {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/aadk8test/providers/Microsoft.ScVmm/virtualmachinetemplates/cl-test-vmtemp-euap-1{{reqParams}}
+
+###
+GET {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/aadk8test/providers/Microsoft.ScVmm/vmmServers/testvmm-auto01-we-01{{reqParams}}

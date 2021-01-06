@@ -7,8 +7,20 @@
 			"memoryMB": 1024,
 			"cpuCount": 1
 		},
+		"osProfile": {
+			"adminPassword": null
+		},
 		"networkProfile": {
-			"networkInterfaces": []
+			"networkInterfaces": [
+				{
+					"name": "nic_2",
+					"virtualNetworkId": null,
+					"ipv4AddressType": "Dynamic",
+					"ipv6AddressType": "Dynamic",
+					"macAddressType": "Dynamic",
+					"macAddress": ""
+				}
+			]
 		},
 		"storageProfile": {
 			"disks": [
@@ -16,7 +28,10 @@
 					"name": "arc-disk-1",
 					"diskSizeGB": 10,
 					"bus": 0,
-					"lun": 10
+					"lun": 10,
+					"storageQoSPolicy": {
+						"name": "arc-qos-1"
+					}
 				},
 				{
 					"name": "arc-disk-2",
