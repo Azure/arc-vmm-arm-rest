@@ -14,7 +14,7 @@
 # @name getAllVMMServer
 GET {{armRoot}}/{{armStub}}/vmmServers{{reqParams}}
 ###
-@vmmServerName = vmmserver-{{uni}}
+@vmmServerName = vmmserver-xmas
 @vmmServerId = /{{armStub}}/vmmServers/{{vmmServerName}}
 # @name vmmServerPut
 PUT {{armRoot}}{{vmmServerId}}{{reqParams}}
