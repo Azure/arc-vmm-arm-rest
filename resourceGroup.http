@@ -4,7 +4,7 @@
 
 @reqParams = ?api-version={{apiVersion}}
 
-@resourceGroupName = snaskar-rg-{{uni}}
+@resourceGroupName = snaskar-rg
 
 @location = eastus
 

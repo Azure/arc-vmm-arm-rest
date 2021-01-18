@@ -1,9 +1,9 @@
 @subscriptionId = 70aad6c5-69f0-4905-87b8-f8700e08e2dd
-@resourceGroup = snaskar-rg-{{uni}}
+@resourceGroup = snaskar-rg
 @provider = Microsoft.SCVMM
 @armStub = subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/{{provider}}
 @reqParams = ?api-version=2020-06-05-preview
-@extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/xmas-cl
+@extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/cl-{{uni}}
 
 @location = westeurope
 
@@ -34,29 +34,46 @@ GET {{armRoot}}{{vmmServerId}}{{reqParams}}
 ### Cloud
 # @name getAllCloud
 GET {{armRoot}}/{{armStub}}/clouds{{reqParams}}
-###
-@cloudName = cloud-qos
-@cloudId = /{{armStub}}/clouds/{{cloudName}}
-# @name cloudPut
-PUT {{armRoot}}{{cloudId}}{{reqParams}}
+### Cloud QoS
+@cloudQosName = cloud-qos-{{uni}}
+@cloudQosId = /{{armStub}}/clouds/{{cloudQosName}}
+# @name cloudQosPut
+PUT {{armRoot}}{{cloudQosId}}{{reqParams}}
 Content-Type: application/json
 
-<@ ./payload/cloud.json
+<@ ./payload/cloud-qos.json
 
 ###
-# @name cloudPutAsyncGet
-GET {{cloudPut.response.headers.Azure-AsyncOperation}}
+# @name cloudQosPutAsyncGet
+GET {{cloudQosPut.response.headers.Azure-AsyncOperation}}
 
 ###
-# @name cloudGet
-GET {{armRoot}}{{cloudId}}{{reqParams}}
+# @name cloudQosGet
+GET {{armRoot}}{{cloudQosId}}{{reqParams}}
+
+### Cloud no QoS
+@cloudNoQosName = cloud-no-qos-{{uni}}
+@cloudNoQosId = /{{armStub}}/clouds/{{cloudNoQosName}}
+# @name cloudNoQosPut
+PUT {{armRoot}}{{cloudNoQosId}}{{reqParams}}
+Content-Type: application/json
+
+<@ ./payload/cloud-no-qos.json
+
+###
+# @name cloudNoQosPutAsyncGet
+GET {{cloudNoQosPut.response.headers.Azure-AsyncOperation}}
+
+###
+# @name cloudNoQosGet
+GET {{armRoot}}{{cloudNoQosId}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualNetwork 1
 # @name getAllVN
 GET {{armRoot}}/{{armStub}}/virtualNetworks{{reqParams}}
 ###
-@virtualNetwork1Name = vnet-561
+@virtualNetwork1Name = vnet-561-{{uni}}
 
 @virtualNetwork1Id = /{{armStub}}/virtualNetworks/{{virtualNetwork1Name}}
 # @name virtualNetwork1Put
@@ -75,7 +92,7 @@ GET {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualNetwork 2
-@virtualNetwork2Name = vnet-562
+@virtualNetwork2Name = vnet-562-{{uni}}
 @virtualNetwork2Id = /{{armStub}}/virtualNetworks/{{virtualNetwork2Name}}
 # @name virtualNetwork2Put
 PUT {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
@@ -96,7 +113,7 @@ GET {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
 # @name getAllVMT
 GET {{armRoot}}/{{armStub}}/virtualMachineTemplates{{reqParams}}
 ###
-@virtualMachineTemplateNameBlank = vmtemplate-blank
+@virtualMachineTemplateNameBlank = vmtemplate-blank-{{uni}}
 @virtualMachineTemplateIdBlank = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateNameBlank}}
 # @name virtualMachineTemplatePutBlank
 PUT {{armRoot}}{{virtualMachineTemplateIdBlank}}{{reqParams}}
@@ -112,7 +129,7 @@ GET {{virtualMachineTemplatePutBlank.response.headers.Azure-AsyncOperation}}
 GET {{armRoot}}{{virtualMachineTemplateIdBlank}}{{reqParams}}
 ###
 
-@virtualMachineTemplateNameLinux = vmtemplate-ubuntu
+@virtualMachineTemplateNameLinux = vmtemplate-ubuntu-{{uni}}
 @virtualMachineTemplateIdLinux = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateNameLinux}}
 # @name virtualMachineTemplatePutLinux
 PUT {{armRoot}}{{virtualMachineTemplateIdLinux}}{{reqParams}}
@@ -128,7 +145,7 @@ GET {{virtualMachineTemplatePutLinux.response.headers.Azure-AsyncOperation}}
 GET {{armRoot}}{{virtualMachineTemplateIdLinux}}{{reqParams}}
 
 ###
-@virtualMachineTemplateNameWindows = vmtemplate-win
+@virtualMachineTemplateNameWindows = vmtemplate-win-{{uni}}
 @virtualMachineTemplateIdWindows = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateNameWindows}}
 # @name virtualMachineTemplatePutWindows
 PUT {{armRoot}}{{virtualMachineTemplateIdWindows}}{{reqParams}}
@@ -150,7 +167,7 @@ GET {{armRoot}}{{virtualMachineTemplateIdWindows}}{{reqParams}}
 # @name getAllVM
 GET {{armRoot}}/{{armStub}}/virtualMachines{{reqParams}}
 ###
-@virtualMachineName = vm-nobug-2
+@virtualMachineName = vm-insert-name-here
 @virtualMachineId = /{{armStub}}/virtualMachines/{{virtualMachineName}}
 # @name virtualMachinePut
 PUT {{armRoot}}{{virtualMachineId}}{{reqParams}}
@@ -209,12 +226,20 @@ DELETE {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
 GET {{virtualNetwork1Del.response.headers.Location}}
 
 #------------------------------------------------------------------------------------------------
-### Cloud
-# @name cloudDel
-DELETE {{armRoot}}{{cloudId}}{{reqParams}}
+### CloudQos
+# @name cloudQosDel
+DELETE {{armRoot}}{{cloudQosId}}{{reqParams}}
 ###
-# @name cloudDelAsyncGet
-GET {{cloudDel.response.headers.Location}}
+# @name cloudQosDelAsyncGet
+GET {{cloudQosDel.response.headers.Location}}
+
+#------------------------------------------------------------------------------------------------
+### CloudNoQos
+# @name cloudNoQosDel
+DELETE {{armRoot}}{{cloudNoQosId}}{{reqParams}}
+###
+# @name cloudNoQosDelAsyncGet
+GET {{cloudNoQosDel.response.headers.Location}}
 
 #------------------------------------------------------------------------------------------------
 ###
@@ -226,10 +251,3 @@ GET {{vmmServerDel.response.headers.Location}}
 
 #------------------------------------------------------------------------------------------------
 ###
-DELETE {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/aadk8test/providers/Microsoft.ScVmm/virtualmachinetemplates/cl-test-vmm-temp-eu-4{{reqParams}}
-
-###
-DELETE {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/aadk8test/providers/Microsoft.ScVmm/virtualmachinetemplates/cl-test-vmtemp-euap-1{{reqParams}}
-
-###
-GET {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/aadk8test/providers/Microsoft.ScVmm/vmmServers/testvmm-auto01-we-01{{reqParams}}

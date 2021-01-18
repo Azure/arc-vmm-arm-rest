@@ -8,13 +8,13 @@
 
 @reqParams = ?api-version={{apiVersion}}
 
-@customLocationName = xmas-cl
+@customLocationName = cl-{{uni}}
 
 @connectedClusterName = onboard-kubeadm-vmm-we-01
 
 @hostResourceId = /subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Kubernetes/connectedClusters/{{connectedClusterName}}
 
-@namespace = xmas-ns
+@namespace = ns-{{uni}}
 
 @clusterExtensionId = {{hostResourceId}}/providers/Microsoft.KubernetesConfiguration/extensions/azure-vmmoperator
 
