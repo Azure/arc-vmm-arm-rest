@@ -80,7 +80,7 @@ GET {{armRoot}}/{{armStub}}/virtualNetworks{{reqParams}}
 PUT {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
 Content-Type: application/json
 
-<@ ./payload/virtualNetwork-1.json
+<@ ./payload/virtualNetwork-561.json
 
 ###
 # @name virtualNetwork1PutAsyncGet
@@ -98,7 +98,7 @@ GET {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
 PUT {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
 Content-Type: application/json
 
-<@ ./payload/virtualNetwork-2.json
+<@ ./payload/virtualNetwork-562.json
 
 ###
 # @name virtualNetwork2PutAsyncGet
