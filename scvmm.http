@@ -191,6 +191,22 @@ POST {{armRoot}}{{virtualMachineId}}/start{{reqParams}}
 # @name startVMAsyncGet
 GET {{startVM.response.headers.Location}}
 
+### Actions
+# @name stopVM
+POST {{armRoot}}{{virtualMachineId}}/stop{{reqParams}}
+
+###
+# @name stopVMAsyncGet
+GET {{stopVM.response.headers.Location}}
+
+### Actions
+# @name restartVM
+POST {{armRoot}}{{virtualMachineId}}/restart{{reqParams}}
+
+###
+# @name restartVMAsyncGet
+GET {{restartVM.response.headers.Location}}
+
 #------------------------------------------------------------------------------------------------
 ### Delete all resources
 #------------------------------------------------------------------------------------------------

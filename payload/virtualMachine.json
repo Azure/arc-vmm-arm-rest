@@ -1,6 +1,6 @@
 {
 	"properties": {
-		"cloudId": "{{cloudId}}",
+		"cloudId": "{{cloudQosId}}",
 		"templateId": "{{virtualMachineTemplateIdBlank}}",
 		"vmmServerId": "{{vmmServerId}}",
 		"hardwareProfile": {
