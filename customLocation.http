@@ -10,7 +10,7 @@
 
 @customLocationName = cl-{{uni}}
 
-@connectedClusterName = onboard-kubeadm-vmm-we-01
+@connectedClusterName = cc-ux
 
 @hostResourceId = /subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Kubernetes/connectedClusters/{{connectedClusterName}}
 
@@ -28,7 +28,7 @@ Content-Type: application/json
 <@ ./payload/customLocation.json
 
 ###
-DELETE {{cls}}/{{customLocationName}}
+DELETE {{cls}}/{{customLocationName}}{{reqParams}}
 
 ### 
 # @name clGet

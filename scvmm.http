@@ -1,9 +1,9 @@
 @subscriptionId = 70aad6c5-69f0-4905-87b8-f8700e08e2dd
-@resourceGroup = snaskar-rg-xmas
+@resourceGroup = rg-{{uni}}
 @provider = Microsoft.SCVMM
 @armStub = subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/{{provider}}
 @reqParams = ?api-version=2020-06-05-preview
-@extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/xmas-cl
+@extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/cl-{{uni}}
 
 @location = westeurope
 
@@ -14,7 +14,7 @@
 # @name getAllVMMServer
 GET {{armRoot}}/{{armStub}}/vmmServers{{reqParams}}
 ###
-@vmmServerName = vmmserver-xmas
+@vmmServerName = vmmserver-{{uni}}
 @vmmServerId = /{{armStub}}/vmmServers/{{vmmServerName}}
 # @name vmmServerPut
 PUT {{armRoot}}{{vmmServerId}}{{reqParams}}
@@ -35,7 +35,7 @@ GET {{armRoot}}{{vmmServerId}}{{reqParams}}
 # @name getAllCloud
 GET {{armRoot}}/{{armStub}}/clouds{{reqParams}}
 ### Cloud QoS
-@cloudQosName = cloud-qos
+@cloudQosName = cloud-qos-{{uni}}
 @cloudQosId = /{{armStub}}/clouds/{{cloudQosName}}
 # @name cloudQosPut
 PUT {{armRoot}}{{cloudQosId}}{{reqParams}}
@@ -52,7 +52,7 @@ GET {{cloudQosPut.response.headers.Azure-AsyncOperation}}
 GET {{armRoot}}{{cloudQosId}}{{reqParams}}
 
 ### Cloud no QoS
-@cloudNoQosName = cloud-no-qos
+@cloudNoQosName = cloud-no-qos-{{uni}}
 @cloudNoQosId = /{{armStub}}/clouds/{{cloudNoQosName}}
 # @name cloudNoQosPut
 PUT {{armRoot}}{{cloudNoQosId}}{{reqParams}}
@@ -80,7 +80,7 @@ GET {{armRoot}}/{{armStub}}/virtualNetworks{{reqParams}}
 PUT {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
 Content-Type: application/json
 
-<@ ./payload/virtualNetwork-1.json
+<@ ./payload/virtualNetwork-561.json
 
 ###
 # @name virtualNetwork1PutAsyncGet
@@ -92,13 +92,13 @@ GET {{armRoot}}{{virtualNetwork1Id}}{{reqParams}}
 
 # -------------------------------------------------------------------------------------------------
 ### VirtualNetwork 2
-@virtualNetwork2Name = vnet-562
+@virtualNetwork2Name = vnet-562-{{uni}}
 @virtualNetwork2Id = /{{armStub}}/virtualNetworks/{{virtualNetwork2Name}}
 # @name virtualNetwork2Put
 PUT {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
 Content-Type: application/json
 
-<@ ./payload/virtualNetwork-2.json
+<@ ./payload/virtualNetwork-562.json
 
 ###
 # @name virtualNetwork2PutAsyncGet
@@ -113,7 +113,7 @@ GET {{armRoot}}{{virtualNetwork2Id}}{{reqParams}}
 # @name getAllVMT
 GET {{armRoot}}/{{armStub}}/virtualMachineTemplates{{reqParams}}
 ###
-@virtualMachineTemplateNameBlank = vmtemplate-blank
+@virtualMachineTemplateNameBlank = vmt-blank-ha-no-qos-static-{{uni}}
 @virtualMachineTemplateIdBlank = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateNameBlank}}
 # @name virtualMachineTemplatePutBlank
 PUT {{armRoot}}{{virtualMachineTemplateIdBlank}}{{reqParams}}
@@ -129,7 +129,7 @@ GET {{virtualMachineTemplatePutBlank.response.headers.Azure-AsyncOperation}}
 GET {{armRoot}}{{virtualMachineTemplateIdBlank}}{{reqParams}}
 ###
 
-@virtualMachineTemplateNameLinux = vmtemplate-ubuntu
+@virtualMachineTemplateNameLinux = vmt-ubuntu16-no-ha-{{uni}}
 @virtualMachineTemplateIdLinux = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateNameLinux}}
 # @name virtualMachineTemplatePutLinux
 PUT {{armRoot}}{{virtualMachineTemplateIdLinux}}{{reqParams}}
@@ -145,7 +145,7 @@ GET {{virtualMachineTemplatePutLinux.response.headers.Azure-AsyncOperation}}
 GET {{armRoot}}{{virtualMachineTemplateIdLinux}}{{reqParams}}
 
 ###
-@virtualMachineTemplateNameWindows = vmtemplate-win
+@virtualMachineTemplateNameWindows = vmt-win-no-ha-{{uni}}
 @virtualMachineTemplateIdWindows = /{{armStub}}/virtualMachineTemplates/{{virtualMachineTemplateNameWindows}}
 # @name virtualMachineTemplatePutWindows
 PUT {{armRoot}}{{virtualMachineTemplateIdWindows}}{{reqParams}}

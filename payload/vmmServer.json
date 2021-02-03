@@ -4,8 +4,8 @@
 			"username": "cdmlabuser",
 			"password": "!!123abc"
 		},
-		"fqdn": "10.225.91.184",
-		"port": 443
+		"fqdn": "10.248.164.85",
+		"port": 8100
 	},
 	"location": "{{location}}",
 	"extendedLocation": {
