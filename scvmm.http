@@ -5,7 +5,7 @@
 @reqParams = ?api-version=2020-06-05-preview
 @extendedLocName = /subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/cl-{{uni}}
 
-@location = westeurope
+@location = eastus2euap
 
 #------------------------------------------------------------------------------------------------
 ### Create all resources
@@ -167,7 +167,7 @@ GET {{armRoot}}{{virtualMachineTemplateIdWindows}}{{reqParams}}
 # @name getAllVM
 GET {{armRoot}}/{{armStub}}/virtualMachines{{reqParams}}
 ###
-@virtualMachineName = vm-insert-name-here
+@virtualMachineName = vm-test-1
 @virtualMachineId = /{{armStub}}/virtualMachines/{{virtualMachineName}}
 # @name virtualMachinePut
 PUT {{armRoot}}{{virtualMachineId}}{{reqParams}}

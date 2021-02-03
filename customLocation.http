@@ -28,7 +28,7 @@ Content-Type: application/json
 <@ ./payload/customLocation.json
 
 ###
-DELETE {{cls}}/{{customLocationName}}
+DELETE {{cls}}/{{customLocationName}}{{reqParams}}
 
 ### 
 # @name clGet
