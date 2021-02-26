@@ -1,0 +1,85 @@
+###
+# @name ccGet
+GET {{armRoot}}/subscriptions/204898ee-cd13-4332-b9d4-55ca5c25496d/resourceGroups/aadk8test/providers/Microsoft.Kubernetes/connectedClusters/sofiya-testCC01?api-version=2020-07-01-preview
+# GET {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/aadk8test/providers/Microsoft.Kubernetes/connectedClusters/cc-01-07/providers/Microsoft.KubernetesConfiguration/extensions/azure-vmmoperator?api-version=2020-07-01-preview HTTP/1.1
+
+
+###
+# @name clGet
+GET {{armRoot}}/subscriptions/204898ee-cd13-4332-b9d4-55ca5c25496d/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/sofiya-cl01?api-version=2020-07-15-privatepreview
+# GET https://management.azure.com/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/cl-01-07?api-version=2020-07-15-privatepreview
+
+
+### 
+# @name vmmserverPut
+PUT https://management.azure.com/subscriptions/70aad6c5-69f0-4905-87b8-f8700e08e2dd/resourceGroups/vmm-load-test-1611202654-rg-3/providers/Microsoft.ScVmm/vmmServers/vmm-load-test-1611202654-vmmserver-3?api-version=2020-06-05-preview
+Content-Type: application/json
+
+{
+	"properties": {
+		"credentials": {
+			"username": "cdmlabuser",
+			"password": "!!123abc"
+		},
+		"fqdn": "10.248.162.49",
+		"port": 443
+	},
+	"location": "westeurope",
+	"extendedLocation": {
+		"type": "customLocation",
+		"name": "/subscriptions/70aad6c5-69f0-4905-87b8-f8700e08e2dd/resourcegroups/vmm-load-test-1611202654-rg-3/providers/microsoft.extendedlocation/customlocations/vmm-load-test-1611202654-cl"
+	}
+}
+
+###
+# @name vmmserverPutAsyncGet
+GET {{vmmserverPut.response.headers.Azure-AsyncOperation}}
+
+###
+# @name clll
+
+GET {{armRoot}}/subscriptions/70aad6c5-69f0-4905-87b8-f8700e08e2dd/resourcegroups/vmm-load-test-1611202654-rg-3/providers/microsoft.extendedlocation/customlocations/vmm-load-test-1611202654-cl?api-version=2020-07-15-privatepreview
+
+
+###
+
+PUT https://management.azure.com/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/aadk8test/providers/Microsoft.Kubernetes/connectedClusters/cc-can-arcvmm-49/providers/Microsoft.KubernetesConfiguration/extensions/azure-vmmoperator?api-version=2020-07-01-preview
+Content-Type: application/json
+
+{
+	"properties": {
+		"extensionType": "microsoft.scvmm",
+		"releaseTrain": "dev",
+		"version": "1.0.129",
+		"scope": {
+			"cluster": {
+				"releaseNamespace": "azure-vmmoperator"
+			}
+		},
+		"autoUpgradeMinorVersion": false,
+		"configurationSettings": {
+			"Microsoft.CustomLocation.ServiceAccount": "azure-vmmoperator"
+		},
+		"configurationProtectedSettings": {}
+	},
+	"location": ""
+}
+
+###
+# "autoUpgradeMinorVersion": false,
+# "version": "0.0.125",
+###
+
+GET https://management.azure.com/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/aadk8test/providers/Microsoft.Kubernetes/connectedClusters/cc-can-arcvmm-49/providers/Microsoft.KubernetesConfiguration/extensions/azure-vmmoperator?api-version=2020-07-01-preview
+
+
+###
+
+GET https://management.azure.com/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/clouds/cloud-qos-49-85-2?api-version=2020-06-05-preview
+
+###
+
+GET https://management.azure.com/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachineTemplates?api-version=2020-06-05-preview
+
+###
+GET {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/aadk8test/providers/microsoft.extendedlocation/customlocations/sofiyacccl101?api-version=2020-07-15-privatepreview

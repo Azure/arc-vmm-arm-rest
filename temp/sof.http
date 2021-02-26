@@ -1,0 +1,50 @@
+###
+
+@clId=/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/rg-can-arcvmm-sof-10/providers/microsoft.extendedlocation/customlocations/cl-can-arcvmm-sof-10-49
+@location=eastus2euap
+@vmmServerId=/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-sof-10/providers/Microsoft.ScVmm/vmmServers/vmmserver-10-49
+@cloudQosId=/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-sof-10/providers/Microsoft.ScVmm/clouds/cloud-qos-10-49
+@vmtBlankId=/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-sof-10/providers/Microsoft.ScVmm/virtualMachineTemplates/vmt-blank-ha-qos-dynamic-10-49
+
+@reqParams = ?api-version=2020-06-05-preview
+
+PUT {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachines/vm-blank-can-arcvmm-sof-10-49{{reqParams}}
+Content-Type: application/json
+
+{
+	"properties": {
+		"cloudId": "{{cloudQosId}}",
+		"templateId": "{{vmtBlankId}}",
+		"vmmServerId": "{{vmmServerId}}",
+		"hardwareProfile": {
+			"memoryMB": 1024,
+			"cpuCount": 1
+		}
+	},
+	"location": "{{location}}",
+	"extendedLocation": {
+		"type": "CustomLocation",
+		"name": "{{clId}}"
+	}
+}
+
+###
+PATCH {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachines/vm-blank-can-arcvmm-sof-10-49{{reqParams}}
+Content-Type: application/json
+
+{
+	"properties": {
+		"hardwareProfile": {
+			"cpuCount": 2
+		}
+	}
+}
+
+###
+GET {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachines/vm-blank-can-arcvmm-sof-10-49{{reqParams}}
+
+###
+DELETE {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachines/vm-blank-can-arcvmm-sof-10-49{{reqParams}}
+
+###
+DELETE {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/clouds/cloud-qos-49-49{{reqParams}}

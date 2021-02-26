@@ -1,0 +1,72 @@
+###
+
+@clId=/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourcegroups/rg-can-arcvmm-49/providers/microsoft.extendedlocation/customlocations/cl-can-arcvmm-49-49
+@location=eastus2euap
+@vmmServerId=/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/vmmServers/vmmserver-49-49
+@cloudQosId=/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/clouds/cloud-qos-49-49
+@vmtBlankId=/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachineTemplates/vmt-blank-ha-qos-dynamic-49-49
+
+@reqParams = ?api-version=2020-06-05-preview
+
+@vmName = vm-can-sn-rest-2
+
+###
+GET {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachines/{{vmName}}{{reqParams}}
+
+###
+PUT {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachines/{{vmName}}{{reqParams}}
+Content-Type: application/json
+
+{
+	"properties": {
+		"cloudId": "{{cloudQosId}}",
+		"templateId": "{{vmtBlankId}}",
+		"vmmServerId": "{{vmmServerId}}",
+		"hardwareProfile": {
+			"memoryMB": 1024,
+			"cpuCount": 1
+		}
+	},
+	"location": "{{location}}",
+	"extendedLocation": {
+		"type": "CustomLocation",
+		"name": "{{clId}}"
+	}
+}
+
+### 
+# @name pat
+PATCH {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachines/{{vmName}}{{reqParams}}
+Content-Type: application/json
+
+{
+	"properties": {
+		"storageProfile": {
+		},
+		"networkProfile": {
+			"networkInterfaces": []
+		}
+	}
+}
+
+###
+GET {{pat.response.headers.Azure-AsyncOperation}}
+
+
+###
+# GET {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachines/{{vmName}}{{reqParams}}
+
+# ###
+# DELETE {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachines/{{vmName}}{{reqParams}}
+
+# ###
+# DELETE {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/clouds/cloud-qos-49-49{{reqParams}}
+
+# ###
+GET {{armRoot}}/subscriptions/9e7d5c01-90ea-4969-bdbf-a4517cd82ccd/resourceGroups/rg-can-arcvmm-49/providers/Microsoft.ScVmm/virtualMachines/{{vmName}}{{reqParams}}
+
+###
+GET {{armRoot}}/providers/Microsoft.SCVMM/Operations{{reqParams}}
+
+###
+GET https://management.azure.com/providers/Microsoft.ScVmm/locations/EASTUS2EUAP/operationStatuses/db1b98e1-9db6-4d23-a248-2a19e027bbca?api-version=2020-06-05-preview
