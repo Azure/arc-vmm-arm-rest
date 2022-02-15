@@ -7,7 +7,7 @@
 
 ### Usage
 
-1. Make sure to login to azure and set your subscription using `az`. Subscription `70aad6c5-69f0-4905-87b8-f8700e08e2dd` is being used for creating the resources.
+1. Make sure to login to azure and set your subscription using `az`. Subscription `204898ee-cd13-4332-b9d4-55ca5c25496d` (ARC-Testing) is being used for creating the resources.
 
 ```sh
 az login
