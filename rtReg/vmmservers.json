@@ -1,0 +1,136 @@
+{
+    "properties": {
+        "name": "vmmservers",
+        "routingType": "Default",
+        "regionality": "Regional",
+        "endpoints": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "East US 2 EUAP"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.Resources/EUAPParticipation"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.canary.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePatchBegin",
+                            "ResourceMoveBegin"
+                        ]
+                    }
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "East US"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.unitedstates.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePatchBegin",
+                            "ResourceMoveBegin"
+                        ]
+                    }
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "West Europe"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.europe.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePatchBegin",
+                            "ResourceMoveBegin"
+                        ]
+                    }
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "West US 2"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.unitedstates.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePatchBegin",
+                            "ResourceMoveBegin"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "swaggerSpecifications": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "swaggerSpecFolderUri": "https://github.com/Azure/azure-rest-api-specs-pr/tree/RPSaaSMaster/specification/scvmm/resource-manager/Microsoft.ScVmm/"
+            }
+        ],
+        "enableAsyncOperation": true,
+        "provisioningState": "Succeeded",
+        "enableThirdPartyS2S": false,
+        "templateDeploymentOptions": {
+            "preflightSupported": true,
+            "preflightOptions": [
+                "DefaultValidationOnly"
+            ]
+        },
+        "extendedLocations": [
+            {
+                "type": "CustomLocation",
+                "supportedPolicy": "NotSpecified"
+            }
+        ],
+        "resourceMovePolicy": {
+            "validationRequired": false,
+            "crossResourceGroupMoveEnabled": true,
+            "crossSubscriptionMoveEnabled": true
+        }
+    },
+    "id": "/subscriptions/2d16bb20-4a29-4c74-9937-acfd236d640c/providers/",
+    "type": "Microsoft.ProviderHub/providerRegistrationsresourceTypeRegistrations",
+    "name": "vmmservers",
+    "systemData": {
+        "createdBy": "SNASKAR@ame.gbl",
+        "createdByType": "User",
+        "createdAt": "2022-01-06T10:56:49.6822301Z",
+        "lastModifiedBy": "SNASKAR@ame.gbl",
+        "lastModifiedByType": "User",
+        "lastModifiedAt": "2022-01-07T08:22:55.1424348Z"
+    }
+}

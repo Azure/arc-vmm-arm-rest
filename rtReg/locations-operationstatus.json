@@ -1,0 +1,38 @@
+{
+    "properties": {
+        "name": "Locations/OperationStatuses",
+        "routingType": "ProxyOnly, Tenant, LocationBased",
+        "regionality": "Regional",
+        "endpoints": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "East US",
+                    "West US 2",
+                    "East US 2 EUAP",
+                    "West Europe"
+                ]
+            }
+        ],
+        "swaggerSpecifications": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "swaggerSpecFolderUri": "https://github.com/Azure/azure-rest-api-specs-pr/tree/RPSaaSMaster/specification/scvmm/resource-manager/Microsoft.ScVmm/"
+            }
+        ],
+        "allowedUnauthorizedActions": [
+            "Microsoft.ScVmm/Locations/OperationStatuses/read",
+            "Microsoft.ScVmm/Locations/OperationStatuses/write"
+        ],
+        "enableAsyncOperation": false,
+        "provisioningState": "Succeeded",
+        "enableThirdPartyS2S": false
+    },
+    "id": "/subscriptions/2d16bb20-4a29-4c74-9937-acfd236d640c/providers/",
+    "type": "Microsoft.ProviderHub/providerRegistrationsresourceTypeRegistrations",
+    "name": "Locations/OperationStatuses"
+}

@@ -1,0 +1,128 @@
+{
+    "properties": {
+        "name": "VirtualMachines",
+        "routingType": "Default",
+        "regionality": "Regional",
+        "endpoints": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "East US 2 EUAP"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.Resources/EUAPParticipation"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.canary.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePostAction",
+                            "ResourcePatchBegin"
+                        ]
+                    }
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "East US"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.unitedstates.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePostAction",
+                            "ResourcePatchBegin"
+                        ]
+                    }
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "West Europe"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.europe.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePostAction",
+                            "ResourcePatchBegin"
+                        ]
+                    }
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "West US 2"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.unitedstates.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePostAction",
+                            "ResourcePatchBegin"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "extensionOptions": {
+            "resourcePatchBegin": {
+                "request": [
+                    "MergePatchPropertiesWithResourceProperties",
+                    "IncludeInternalMetadata"
+                ],
+                "response": [
+                    "ReplaceResourcePropertiesWithPatchProperties"
+                ]
+            }
+        },
+        "swaggerSpecifications": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "swaggerSpecFolderUri": "https://github.com/Azure/azure-rest-api-specs-pr/tree/RPSaaSMaster/specification/scvmm/resource-manager/Microsoft.ScVmm/"
+            }
+        ],
+        "enableAsyncOperation": true,
+        "provisioningState": "Succeeded",
+        "enableThirdPartyS2S": false,
+        "extendedLocations": [
+            {
+                "type": "CustomLocation",
+                "supportedPolicy": "NotSpecified"
+            }
+        ]
+    },
+    "id": "/subscriptions/2d16bb20-4a29-4c74-9937-acfd236d640c/providers/",
+    "type": "Microsoft.ProviderHub/providerRegistrationsresourceTypeRegistrations",
+    "name": "VirtualMachines"
+}

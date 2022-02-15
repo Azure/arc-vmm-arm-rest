@@ -1,0 +1,216 @@
+@armRoot = https://management.azure.com
+@subscriptionId = 2d16bb20-4a29-4c74-9937-acfd236d640c
+@provider = Microsoft.ProviderHub
+@providerRegistration = Microsoft.SCVMM
+@armStub = subscriptions/{{subscriptionId}}/providers/{{provider}}/providerregistrations/{{providerRegistration}}
+@reqParams = ?api-version=2021-09-01-preview
+@bearer = Bearer {{$dotenv BearerToken}}
+
+# -------------
+## List all Resource Type Registrations
+
+GET {{armRoot}}/{{armStub}}/resourcetyperegistrations{{reqParams}}
+Authorization: {{bearer}}
+
+# --------------
+## CRUD on each Resource Type Registration
+
+### Typical workflow:
+#### 1. GET the resource type registration
+#### 2. save it to the corresponding json file 
+#### 3. edit the json file to make changes
+#### 4. PUT the resource type registration
+
+# -------------
+### vmmservers
+
+###
+# @name vmmserversGet
+GET {{armRoot}}/{{armStub}}/resourcetyperegistrations/vmmservers{{reqParams}}
+Authorization: {{bearer}}
+
+### 
+# @name vmmserversPut
+PUT {{armRoot}}/{{armStub}}/resourcetyperegistrations/vmmservers{{reqParams}}
+Authorization: {{bearer}}
+Content-Type: application/json
+
+<@ ./rtReg/vmmservers.json
+
+# -------------
+### clouds
+
+###
+# @name cloudsGet
+GET {{armRoot}}/{{armStub}}/resourcetyperegistrations/clouds{{reqParams}}
+Authorization: {{bearer}}
+
+### 
+# @name cloudsPut
+PUT {{armRoot}}/{{armStub}}/resourcetyperegistrations/clouds{{reqParams}}
+Authorization: {{bearer}}
+Content-Type: application/json
+
+<@ ./rtReg/clouds.json
+
+# -------------
+### virtualnetworks
+
+###
+# @name virtualnetworksGet
+GET {{armRoot}}/{{armStub}}/resourcetyperegistrations/virtualnetworks{{reqParams}}
+Authorization: {{bearer}}
+
+### 
+# @name virtualnetworksPut
+PUT {{armRoot}}/{{armStub}}/resourcetyperegistrations/virtualnetworks{{reqParams}}
+Authorization: {{bearer}}
+Content-Type: application/json
+
+<@ ./rtReg/virtualnetworks.json
+
+# -------------
+### virtualmachinetemplates
+
+###
+# @name virtualmachinetemplatesGet
+GET {{armRoot}}/{{armStub}}/resourcetyperegistrations/virtualmachinetemplates{{reqParams}}
+Authorization: {{bearer}}
+
+### 
+# @name virtualmachinetemplatesPut
+PUT {{armRoot}}/{{armStub}}/resourcetyperegistrations/virtualmachinetemplates{{reqParams}}
+Authorization: {{bearer}}
+Content-Type: application/json
+
+<@ ./rtReg/virtualmachinetemplates.json
+
+# -------------
+### availabilitysets
+
+###
+# @name availabilitysetsGet
+GET {{armRoot}}/{{armStub}}/resourcetyperegistrations/availabilitysets{{reqParams}}
+Authorization: {{bearer}}
+
+### 
+# @name availabilitysetsPut
+PUT {{armRoot}}/{{armStub}}/resourcetyperegistrations/availabilitysets{{reqParams}}
+Authorization: {{bearer}}
+Content-Type: application/json
+
+<@ ./rtReg/availabilitysets.json
+
+# -------------
+### inventoryitems
+
+###
+# @name inventoryitemsGet
+GET {{armRoot}}/{{armStub}}/resourcetyperegistrations/vmmservers/resourcetyperegistrations/inventoryitems{{reqParams}}
+Authorization: {{bearer}}
+
+### 
+# @name inventoryitemsPut
+PUT {{armRoot}}/{{armStub}}/resourcetyperegistrations/vmmservers/resourcetyperegistrations/inventoryitems{{reqParams}}
+Authorization: {{bearer}}
+Content-Type: application/json
+
+<@ ./rtReg/vmmservers-inventoryitems.json
+
+# -------------
+### locations
+
+###
+# @name locationsGet
+GET {{armRoot}}/{{armStub}}/resourcetyperegistrations/locations{{reqParams}}
+Authorization: {{bearer}}
+
+### 
+# @name locationsPut
+PUT {{armRoot}}/{{armStub}}/resourcetyperegistrations/locations{{reqParams}}
+Authorization: {{bearer}}
+Content-Type: application/json
+
+<@ ./rtReg/locations.json
+
+# -------------
+### operations
+
+###
+# @name operationsGet
+GET {{armRoot}}/{{armStub}}/resourcetyperegistrations/operations{{reqParams}}
+Authorization: {{bearer}}
+
+### 
+# @name operationsPut
+PUT {{armRoot}}/{{armStub}}/resourcetyperegistrations/operations{{reqParams}}
+Authorization: {{bearer}}
+Content-Type: application/json
+
+<@ ./rtReg/operations.json
+
+# -------------
+### operationstatuses
+
+###
+# @name operationstatusesGet
+GET {{armRoot}}/{{armStub}}/resourcetyperegistrations/locations/resourcetyperegistrations/operationstatuses{{reqParams}}
+Authorization: {{bearer}}
+
+### 
+# @name operationstatusesPut
+PUT {{armRoot}}/{{armStub}}/resourcetyperegistrations/locations/resourcetyperegistrations/operationstatuses{{reqParams}}
+Authorization: {{bearer}}
+Content-Type: application/json
+
+<@ ./rtReg/locations-operationstatuses.json
+
+
+# -------------
+## Manifest Rollout
+
+### Typical workflow:
+#### 1. POST /generatemanifest to view the generated manifest
+#### 2. PUT /checkinManifest to check in the manifest
+#### 3. PUT /defaultRollouts/:name to rollout the manifest. 'name' has to be unique.
+####    You can run give the UTC timestamp as a unique ID.
+####    In linux, run the following to get the current timestamp:
+####    date -u +"%Y-%m-%dT%H-%M-%S"
+#### 4. GET /defaultRollouts/:name to view the status of the manifest rollout
+
+###
+# @name generateRollout
+POST {{armRoot}}/{{armStub}}/generatemanifest{{reqParams}}
+Authorization: {{bearer}}
+
+###
+# @name checkInManifest
+POSt {{armRoot}}/{{armStub}}/checkinManifest{{reqParams}}
+Authorization: {{bearer}}
+Content-Type: application/json
+
+{
+  "BaselineArmManifestLocation": "WestCentralUS",
+  "Environment": "Prod"
+}
+
+###
+# @name createNewRollout
+PUT {{armRoot}}/{{armStub}}/defaultRollouts/2022-02-15T08-38-14{{reqParams}}&rolloutOptions=manifestSdpOnly
+Authorization: {{bearer}}
+Content-Type: application/json
+
+{
+  "properties": {
+    "specification": {
+      "restOfTheWorldGroupTwo": {
+        "waitDuration": "PT2H"
+      }
+    }
+  }
+}
+
+###
+# @name getStatus
+GET {{armRoot}}/{{armStub}}/defaultRollouts/2022-02-15T08-38-14{{reqParams}}&rolloutOptions=manifestSdpOnly
+Authorization: {{bearer}}

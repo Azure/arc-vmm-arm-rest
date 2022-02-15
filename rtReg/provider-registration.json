@@ -1,0 +1,56 @@
+{
+    "properties": {
+        "providerHubMetadata": {
+            "providerAuthorizations": [
+                {
+                    "applicationId": "319f651f-7ddb-4fc6-9857-7aef9250bd05",
+                    "roleDefinitionId": "4fe6d683-8411-4247-8525-b6b5b8a80669"
+                }
+            ],
+            "providerAuthentication": {
+                "allowedAudiences": [
+                    "319f651f-7ddb-4fc6-9857-7aef9250bd05"
+                ]
+            }
+        },
+        "provisioningState": "Succeeded",
+        "namespace": "Microsoft.ScVmm",
+        "providerVersion": "2.0",
+        "providerType": "Internal",
+        "management": {
+            "manifestOwners": [
+                "SPARTA-PlatformServiceAdministrator"
+            ],
+            "incidentRoutingService": "Azure Arc enabled SCVMM",
+            "incidentRoutingTeam": "Triage",
+            "incidentContactEmail": "scvmmarc@microsoft.com",
+            "serviceTreeInfos": [
+                {
+                    "serviceId": "e022f976-6228-4144-a136-bfc53f0d0dce",
+                    "componentId": "e022f976-6228-4144-a136-bfc53f0d0dce"
+                }
+            ],
+            "resourceAccessPolicy": "NotSpecified"
+        },
+        "capabilities": [
+            {
+                "quotaId": "CSP_2015-05-01",
+                "effect": "Allow"
+            },
+            {
+                "quotaId": "CSP_MG_2017-12-01",
+                "effect": "Allow"
+            }
+        ],
+        "metadata": null
+    },
+    "type": "Microsoft.ProviderHub/providerRegistrations",
+    "systemData": {
+        "createdBy": "SUBBART@ame.gbl",
+        "createdByType": "User",
+        "createdAt": "2021-07-06T12:09:05.2498823Z",
+        "lastModifiedBy": "SUBBART@ame.gbl",
+        "lastModifiedByType": "User",
+        "lastModifiedAt": "2021-07-06T12:09:05.2498823Z"
+    }
+}

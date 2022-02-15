@@ -1,0 +1,85 @@
+{
+    "properties": {
+        "name": "VMMServers/InventoryItems",
+        "routingType": "ProxyOnly",
+        "regionality": "Regional",
+        "endpoints": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "East US 2 EUAP"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.Resources/EUAPParticipation"
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "East US"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "West Europe"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "West US 2"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ]
+            }
+        ],
+        "swaggerSpecifications": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "swaggerSpecFolderUri": "https://github.com/Azure/azure-rest-api-specs-pr/tree/RPSaaSMaster/specification/scvmm/resource-manager/Microsoft.ScVmm/"
+            }
+        ],
+        "enableAsyncOperation": false,
+        "provisioningState": "Succeeded",
+        "enableThirdPartyS2S": false,
+        "templateDeploymentOptions": {
+            "preflightSupported": true,
+            "preflightOptions": [
+                "DefaultValidationOnly"
+            ]
+        },
+        "resourceGraphConfiguration": {
+            "apiVersion": "2020-06-05-preview",
+            "enabled": true
+        }
+    },
+    "id": "/subscriptions/2d16bb20-4a29-4c74-9937-acfd236d640c/providers/",
+    "type": "Microsoft.ProviderHub/providerRegistrationsresourceTypeRegistrations",
+    "name": "VMMServers/InventoryItems",
+    "systemData": {
+        "createdBy": "SUBBART@ame.gbl",
+        "createdByType": "User",
+        "createdAt": "2021-11-16T11:30:57.1088316Z",
+        "lastModifiedBy": "SUBBART@ame.gbl",
+        "lastModifiedByType": "User",
+        "lastModifiedAt": "2021-12-01T03:38:26.1589583Z"
+    }
+}

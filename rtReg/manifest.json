@@ -1,0 +1,753 @@
+{
+    "providerAuthorizations": [
+        {
+            "applicationId": "319f651f-7ddb-4fc6-9857-7aef9250bd05",
+            "roleDefinitionId": "4fe6d683-8411-4247-8525-b6b5b8a80669"
+        }
+    ],
+    "namespace": "Microsoft.ScVmm",
+    "providerVersion": "2.0",
+    "providerType": "Internal",
+    "resourceTypes": [
+        {
+            "name": "Locations",
+            "routingType": "ProxyOnly",
+            "resourceValidation": "ReservedWords, ProfaneWords",
+            "endpoints": [
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://global.metarp.azure.com/",
+                    "locations": [
+                        ""
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                }
+            ],
+            "metadata": {
+                "providerHubMetadata": {
+                    "providerExtendsPreflight": true
+                }
+            },
+            "templateDeploymentPolicy": {
+                "capabilities": "Preflight",
+                "preflightOptions": "ValidationRequests, DeploymentRequests, RegisteredOnly"
+            },
+            "linkedOperationRules": []
+        },
+        {
+            "name": "Locations/OperationStatuses",
+            "routingType": "ProxyOnly, Tenant, LocationBased",
+            "resourceValidation": "ReservedWords, ProfaneWords",
+            "allowedUnauthorizedActions": [
+                "Microsoft.ScVmm/Locations/OperationStatuses/read",
+                "Microsoft.ScVmm/Locations/OperationStatuses/write"
+            ],
+            "endpoints": [
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus.metarp.azure.com/rolelocation/eastus/",
+                    "locations": [
+                        "East US"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westus2.metarp.azure.com/rolelocation/westus2/",
+                    "locations": [
+                        "West US 2"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus2euap.metarp.azure.com/rolelocation/eastus2euap/",
+                    "locations": [
+                        "East US 2 EUAP"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "Canary"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westeurope.metarp.azure.com/rolelocation/westeurope/",
+                    "locations": [
+                        "West Europe"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                }
+            ],
+            "linkedOperationRules": []
+        },
+        {
+            "name": "Operations",
+            "routingType": "ProxyOnly, Tenant",
+            "resourceValidation": "ReservedWords, ProfaneWords",
+            "allowedUnauthorizedActions": [
+                "Microsoft.ScVmm/Operations/read"
+            ],
+            "endpoints": [
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://global.metarp.azure.com/",
+                    "locations": [
+                        ""
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                }
+            ],
+            "metadata": {
+                "providerHubMetadata": {
+                    "providerExtendsPreflight": true
+                }
+            },
+            "templateDeploymentPolicy": {
+                "capabilities": "Preflight",
+                "preflightOptions": "ValidationRequests, DeploymentRequests, RegisteredOnly"
+            },
+            "linkedOperationRules": []
+        },
+        {
+            "name": "vmmservers",
+            "routingType": "BypassEndpointSelectionOptimization",
+            "resourceValidation": "ReservedWords, ProfaneWords",
+            "endpoints": [
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus2euap.metarp.azure.com/rolelocation/eastus2euap/",
+                    "locations": [
+                        "East US 2 EUAP"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.Resources/EUAPParticipation"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "Canary"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus.metarp.azure.com/rolelocation/eastus/",
+                    "locations": [
+                        "East US"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westeurope.metarp.azure.com/rolelocation/westeurope/",
+                    "locations": [
+                        "West Europe"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westus2.metarp.azure.com/rolelocation/westus2/",
+                    "locations": [
+                        "West US 2"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                }
+            ],
+            "metadata": {
+                "providerHubMetadata": {
+                    "providerExtendsPreflight": true
+                }
+            },
+            "templateDeploymentPolicy": {
+                "capabilities": "Preflight",
+                "preflightOptions": "ValidationRequests, DeploymentRequests, RegisteredOnly"
+            },
+            "extendedLocations": [
+                {
+                    "type": "CustomLocation",
+                    "supportedPolicy": "NotSpecified"
+                }
+            ],
+            "linkedOperationRules": [
+                {
+                    "linkedOperation": "CrossResourceGroupResourceMove",
+                    "linkedAction": "Enabled"
+                },
+                {
+                    "linkedOperation": "CrossSubscriptionResourceMove",
+                    "linkedAction": "Enabled"
+                }
+            ]
+        },
+        {
+            "name": "clouds",
+            "routingType": "BypassEndpointSelectionOptimization",
+            "resourceValidation": "ReservedWords, ProfaneWords",
+            "endpoints": [
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus2euap.metarp.azure.com/rolelocation/eastus2euap/",
+                    "locations": [
+                        "East US 2 EUAP"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.Resources/EUAPParticipation"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "Canary"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus.metarp.azure.com/rolelocation/eastus/",
+                    "locations": [
+                        "East US"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westeurope.metarp.azure.com/rolelocation/westeurope/",
+                    "locations": [
+                        "West Europe"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westus2.metarp.azure.com/rolelocation/westus2/",
+                    "locations": [
+                        "West US 2"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                }
+            ],
+            "metadata": {
+                "providerHubMetadata": {
+                    "providerExtendsPreflight": true
+                }
+            },
+            "templateDeploymentPolicy": {
+                "capabilities": "Preflight",
+                "preflightOptions": "ValidationRequests, DeploymentRequests, RegisteredOnly"
+            },
+            "extendedLocations": [
+                {
+                    "type": "CustomLocation",
+                    "supportedPolicy": "NotSpecified"
+                }
+            ],
+            "linkedOperationRules": [
+                {
+                    "linkedOperation": "CrossResourceGroupResourceMove",
+                    "linkedAction": "Blocked"
+                },
+                {
+                    "linkedOperation": "CrossSubscriptionResourceMove",
+                    "linkedAction": "Blocked"
+                }
+            ]
+        },
+        {
+            "name": "virtualnetworks",
+            "routingType": "BypassEndpointSelectionOptimization",
+            "resourceValidation": "ReservedWords, ProfaneWords",
+            "endpoints": [
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus2euap.metarp.azure.com/rolelocation/eastus2euap/",
+                    "locations": [
+                        "East US 2 EUAP"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.Resources/EUAPParticipation"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "Canary"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus.metarp.azure.com/rolelocation/eastus/",
+                    "locations": [
+                        "East US"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westeurope.metarp.azure.com/rolelocation/westeurope/",
+                    "locations": [
+                        "West Europe"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westus2.metarp.azure.com/rolelocation/westus2/",
+                    "locations": [
+                        "West US 2"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                }
+            ],
+            "metadata": {
+                "providerHubMetadata": {
+                    "providerExtendsPreflight": true
+                }
+            },
+            "templateDeploymentPolicy": {
+                "capabilities": "Preflight",
+                "preflightOptions": "ValidationRequests, DeploymentRequests, RegisteredOnly"
+            },
+            "extendedLocations": [
+                {
+                    "type": "CustomLocation",
+                    "supportedPolicy": "NotSpecified"
+                }
+            ],
+            "linkedOperationRules": [
+                {
+                    "linkedOperation": "CrossResourceGroupResourceMove",
+                    "linkedAction": "Blocked"
+                },
+                {
+                    "linkedOperation": "CrossSubscriptionResourceMove",
+                    "linkedAction": "Blocked"
+                }
+            ]
+        },
+        {
+            "name": "virtualmachinetemplates",
+            "routingType": "BypassEndpointSelectionOptimization",
+            "resourceValidation": "ReservedWords, ProfaneWords",
+            "endpoints": [
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus2euap.metarp.azure.com/rolelocation/eastus2euap/",
+                    "locations": [
+                        "East US 2 EUAP"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.Resources/EUAPParticipation"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "Canary"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus.metarp.azure.com/rolelocation/eastus/",
+                    "locations": [
+                        "East US"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westeurope.metarp.azure.com/rolelocation/westeurope/",
+                    "locations": [
+                        "West Europe"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westus2.metarp.azure.com/rolelocation/westus2/",
+                    "locations": [
+                        "West US 2"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                }
+            ],
+            "metadata": {
+                "providerHubMetadata": {
+                    "providerExtendsPreflight": true
+                }
+            },
+            "templateDeploymentPolicy": {
+                "capabilities": "Preflight",
+                "preflightOptions": "ValidationRequests, DeploymentRequests, RegisteredOnly"
+            },
+            "extendedLocations": [
+                {
+                    "type": "CustomLocation",
+                    "supportedPolicy": "NotSpecified"
+                }
+            ],
+            "linkedOperationRules": [
+                {
+                    "linkedOperation": "CrossResourceGroupResourceMove",
+                    "linkedAction": "Blocked"
+                },
+                {
+                    "linkedOperation": "CrossSubscriptionResourceMove",
+                    "linkedAction": "Blocked"
+                }
+            ]
+        },
+        {
+            "name": "VirtualMachines",
+            "routingType": "BypassEndpointSelectionOptimization",
+            "resourceValidation": "ReservedWords, ProfaneWords",
+            "endpoints": [
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus2euap.metarp.azure.com/rolelocation/eastus2euap/",
+                    "locations": [
+                        "East US 2 EUAP"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.Resources/EUAPParticipation"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "Canary"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus.metarp.azure.com/rolelocation/eastus/",
+                    "locations": [
+                        "East US"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westeurope.metarp.azure.com/rolelocation/westeurope/",
+                    "locations": [
+                        "West Europe"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westus2.metarp.azure.com/rolelocation/westus2/",
+                    "locations": [
+                        "West US 2"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                }
+            ],
+            "metadata": {
+                "providerHubMetadata": {
+                    "providerExtendsPreflight": true
+                }
+            },
+            "templateDeploymentPolicy": {
+                "capabilities": "Preflight",
+                "preflightOptions": "ValidationRequests, DeploymentRequests, RegisteredOnly"
+            },
+            "extendedLocations": [
+                {
+                    "type": "CustomLocation",
+                    "supportedPolicy": "NotSpecified"
+                }
+            ],
+            "linkedOperationRules": [
+                {
+                    "linkedOperation": "CrossResourceGroupResourceMove",
+                    "linkedAction": "Blocked"
+                },
+                {
+                    "linkedOperation": "CrossSubscriptionResourceMove",
+                    "linkedAction": "Blocked"
+                }
+            ]
+        },
+        {
+            "name": "availabilitysets",
+            "routingType": "BypassEndpointSelectionOptimization",
+            "resourceValidation": "ReservedWords, ProfaneWords",
+            "endpoints": [
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus2euap.metarp.azure.com/rolelocation/eastus2euap/",
+                    "locations": [
+                        "East US 2 EUAP"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.Resources/EUAPParticipation"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "Canary"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus.metarp.azure.com/rolelocation/eastus/",
+                    "locations": [
+                        "East US"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westeurope.metarp.azure.com/rolelocation/westeurope/",
+                    "locations": [
+                        "West Europe"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                }
+            ],
+            "metadata": {
+                "providerHubMetadata": {
+                    "providerExtendsPreflight": true
+                }
+            },
+            "templateDeploymentPolicy": {
+                "capabilities": "Preflight",
+                "preflightOptions": "ValidationRequests, DeploymentRequests, RegisteredOnly"
+            },
+            "extendedLocations": [
+                {
+                    "type": "CustomLocation",
+                    "supportedPolicy": "NotSpecified"
+                }
+            ],
+            "linkedOperationRules": [
+                {
+                    "linkedOperation": "CrossResourceGroupResourceMove",
+                    "linkedAction": "Blocked"
+                },
+                {
+                    "linkedOperation": "CrossSubscriptionResourceMove",
+                    "linkedAction": "Blocked"
+                }
+            ]
+        },
+        {
+            "name": "VMMServers/InventoryItems",
+            "routingType": "ProxyOnly",
+            "resourceValidation": "ReservedWords, ProfaneWords",
+            "endpoints": [
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus2euap.metarp.azure.com/rolelocation/eastus2euap/",
+                    "locations": [
+                        "East US 2 EUAP"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.Resources/EUAPParticipation"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "Canary"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://eastus.metarp.azure.com/rolelocation/eastus/",
+                    "locations": [
+                        "East US"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westeurope.metarp.azure.com/rolelocation/westeurope/",
+                    "locations": [
+                        "West Europe"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                },
+                {
+                    "apiVersions": [
+                        "2020-06-05-preview"
+                    ],
+                    "endpointUri": "https://westus2.metarp.azure.com/rolelocation/westus2/",
+                    "locations": [
+                        "West US 2"
+                    ],
+                    "requiredFeatures": [
+                        "Microsoft.ScVmm/ArcForSCVMMPreview"
+                    ],
+                    "timeout": "PT20S",
+                    "endpointType": "NotSpecified"
+                }
+            ],
+            "metadata": {
+                "providerHubMetadata": {
+                    "providerExtendsPreflight": true
+                }
+            },
+            "templateDeploymentPolicy": {
+                "capabilities": "Preflight",
+                "preflightOptions": "ValidationRequests, DeploymentRequests, RegisteredOnly"
+            },
+            "linkedOperationRules": []
+        }
+    ],
+    "management": {
+        "manifestOwners": [
+            "SPARTA-PlatformServiceAdministrator"
+        ],
+        "incidentRoutingService": "Azure Arc enabled SCVMM",
+        "incidentRoutingTeam": "Triage",
+        "incidentContactEmail": "scvmmarc@microsoft.com",
+        "serviceTreeInfos": [
+            {
+                "serviceId": "e022f976-6228-4144-a136-bfc53f0d0dce",
+                "componentId": "e022f976-6228-4144-a136-bfc53f0d0dce"
+            }
+        ],
+        "resourceAccessPolicy": "NotSpecified"
+    },
+    "capabilities": [
+        {
+            "quotaId": "CSP_2015-05-01",
+            "effect": "Allow"
+        },
+        {
+            "quotaId": "CSP_MG_2017-12-01",
+            "effect": "Allow"
+        }
+    ],
+    "metadata": {
+        "onboardedVia": "ProviderHub"
+    },
+    "globalNotificationEndpoints": [
+        {
+            "enabled": true,
+            "endpointUri": "https://global.metarp.azure.com"
+        }
+    ],
+    "reRegisterSubscriptionMetadata": {
+        "enabled": true,
+        "concurrencyLimit": 100
+    }
+}

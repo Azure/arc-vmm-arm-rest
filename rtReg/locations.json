@@ -1,0 +1,31 @@
+{
+    "properties": {
+        "name": "Locations",
+        "routingType": "ProxyOnly",
+        "regionality": "Global",
+        "endpoints": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    ""
+                ]
+            }
+        ],
+        "swaggerSpecifications": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "swaggerSpecFolderUri": "https://github.com/Azure/azure-rest-api-specs-pr/tree/RPSaaSMaster/specification/scvmm/resource-manager/Microsoft.ScVmm/"
+            }
+        ],
+        "enableAsyncOperation": false,
+        "provisioningState": "Succeeded",
+        "enableThirdPartyS2S": false
+    },
+    "id": "/subscriptions/2d16bb20-4a29-4c74-9937-acfd236d640c/providers/",
+    "type": "Microsoft.ProviderHub/providerRegistrationsresourceTypeRegistrations",
+    "name": "Locations"
+}

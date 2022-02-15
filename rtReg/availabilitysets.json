@@ -1,0 +1,106 @@
+{
+    "properties": {
+        "name": "AvailabilitySets",
+        "routingType": "Default",
+        "regionality": "Regional",
+        "endpoints": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "East US 2 EUAP"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.Resources/EUAPParticipation"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.canary.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePatchBegin"
+                        ]
+                    }
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "East US"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.unitedstates.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePatchBegin"
+                        ]
+                    }
+                ]
+            },
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "locations": [
+                    "West Europe"
+                ],
+                "requiredFeatures": [
+                    "Microsoft.ScVmm/ArcForSCVMMPreview"
+                ],
+                "extensions": [
+                    {
+                        "endpointUri": "https://k8bridge.europe.production.fusion.azure.com/",
+                        "extensionCategories": [
+                            "ResourceCreationBegin",
+                            "ResourceDeletionBegin",
+                            "ResourcePatchBegin"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "swaggerSpecifications": [
+            {
+                "apiVersions": [
+                    "2020-06-05-preview"
+                ],
+                "swaggerSpecFolderUri": "https://github.com/Azure/azure-rest-api-specs-pr/tree/RPSaaSMaster/specification/scvmm/resource-manager/Microsoft.ScVmm/"
+            }
+        ],
+        "enableAsyncOperation": true,
+        "provisioningState": "Succeeded",
+        "enableThirdPartyS2S": false,
+        "templateDeploymentOptions": {
+            "preflightSupported": true,
+            "preflightOptions": [
+                "DefaultValidationOnly"
+            ]
+        },
+        "extendedLocations": [
+            {
+                "type": "CustomLocation",
+                "supportedPolicy": "NotSpecified"
+            }
+        ]
+    },
+    "id": "/subscriptions/2d16bb20-4a29-4c74-9937-acfd236d640c/providers/",
+    "type": "Microsoft.ProviderHub/providerRegistrationsresourceTypeRegistrations",
+    "name": "AvailabilitySets",
+    "systemData": {
+        "createdBy": "SUBBART@ame.gbl",
+        "createdByType": "User",
+        "createdAt": "2021-11-16T11:19:53.0467455Z",
+        "lastModifiedBy": "SUBBART@ame.gbl",
+        "lastModifiedByType": "User",
+        "lastModifiedAt": "2021-11-16T11:19:53.0467455Z"
+    }
+}
